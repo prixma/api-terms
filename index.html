@@ -31,7 +31,7 @@
 
     async function loadMarkdown() {
       try {
-        const res = await fetch('terms.md', { cache: 'no-store' });
+        const res = await fetch('https://raw.githubusercontent.com/prixma/api-terms/master/terms.md', { cache: 'no-store' });
         if (!res.ok) throw new Error('Falha ao carregar terms.md');
         const md = await res.text();
         const html = marked.parse(md, { mangle: false, headerIds: true });
