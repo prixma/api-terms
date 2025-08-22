@@ -1,0 +1,54 @@
+/* Minimal, clean styling for a single-page terms site */
+:root{
+  --bg: #0b0c10;
+  --panel: #121417;
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+  --link: #8ab4f8;
+  --border: #24262b;
+  --radius: 16px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 0%, #131722 0%, var(--bg) 60%);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.header{
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+.header h1{margin:0; font-size: clamp(22px, 4vw, 30px); letter-spacing: .3px;}
+.nav a{
+  margin-left: 12px; text-decoration:none; color: var(--link);
+  border:1px solid var(--border); padding:8px 12px; border-radius:12px;
+}
+.content{
+  margin-top: 18px;
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.content h2, .content h3 { margin-top: 1.6em; }
+.content pre, .content code{
+  background:#0d1117; border:1px solid #30363d; border-radius:12px; padding:2px 6px;
+}
+.content pre{ padding: 14px; overflow:auto; }
+.content table{ width:100%; border-collapse: collapse; margin:14px 0; }
+.content th, .content td{ border:1px solid #2b2f36; padding:8px 10px; text-align:left; }
+.footer{ margin-top: 16px; color: var(--muted); text-align:center; }

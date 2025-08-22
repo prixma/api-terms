@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Termos de Uso da API</title>
+  <meta name="description" content="Termos de Uso da API" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Marked.js (MIT) for client-side Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Termos de Uso da API</h1>
+      <nav class="nav">
+        <a href="./terms.md" target="_blank" rel="noopener">Ver Markdown</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <article id="content" class="content">Carregando termos...</article>
+
+    <footer class="footer">
+      <small>© <span id="year"></span> — Estes termos são fornecidos “como estão”.</small>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function loadMarkdown() {
+      try {
+        const res = await fetch('terms.md', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Falha ao carregar terms.md');
+        const md = await res.text();
+        const html = marked.parse(md, { mangle: false, headerIds: true });
+        document.getElementById('content').innerHTML = html;
+      } catch (err) {
+        document.getElementById('content').textContent = 'Erro ao carregar os termos: ' + err.message;
+      }
+    }
+    loadMarkdown();
+  </script>
+</body>
+</html>
